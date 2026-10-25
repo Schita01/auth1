@@ -27,7 +27,7 @@ jobs:
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
-          NEXT_PUBLIC_SITE_URL: https://schita01.github.io/auth1
+          NEXT_PUBLIC_SITE_URL: https://khidi.online.ge
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

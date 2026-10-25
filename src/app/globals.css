@@ -630,6 +630,10 @@ html[lang="ka"] h1 {
   margin-bottom: 2.2rem;
 }
 
+.section-soft .section-head {
+  margin-bottom: 0.2rem;
+}
+
 .section-head.is-center {
   text-align: center;
 }
@@ -880,7 +884,7 @@ button.tile:active {
   justify-items: center;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: -17% auto 0;
   padding: 0.25rem 0 3.6rem;
 }
 
