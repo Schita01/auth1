@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: "Segoe UI", "Sylfaen", sans-serif;
+    background: #ffffff;
+    color: #111827;
+    position: relative;
+  }
+  .blob {
+    position: absolute; right: -80px; top: -60px; width: 720px; height: 720px;
+    border-radius: 42% 58% 52% 48% / 48% 42% 58% 52%;
+    background: radial-gradient(circle, #eaefff, #ffffff 70%);
+  }
+  .copy { position: absolute; left: 72px; top: 92px; width: 560px; }
+  .brand { display: flex; align-items: center; gap: 18px; font-size: 44px; font-weight: 700; }
+  h1 { margin: 44px 0 18px; font-size: 76px; line-height: 1.02; letter-spacing: -2px; }
+  h1 span { color: #4766f0; }
+  p { margin: 0; font-size: 30px; color: #5b6474; line-height: 1.35; }
+  .tablet {
+    position: absolute; right: 70px; top: 96px; width: 470px; padding: 16px;
+    border-radius: 30px; background: #ffffff; border: 1px solid #e9edf3;
+    box-shadow: 0 30px 60px rgba(30,41,80,.14);
+  }
+  .screen { padding: 12px; border-radius: 18px; background: #f7f9fc; }
+  .bar { display: flex; gap: 8px; margin-bottom: 10px; }
+  .sent { flex: 1; padding: 12px 14px; border-radius: 12px; background: #fff; border: 1px solid #e3e8f0; font-weight: 700; font-size: 22px; }
+  .spk { width: 54px; border-radius: 12px; background: #4766f0; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .t { height: 86px; border-radius: 12px; display: grid; place-items: center; font-weight: 700; font-size: 18px; }
+  .y { background: #fff6d6; } .g { background: #e6f7ee; } .r { background: #ffeae6; } .b { background: #e8efff; } .o { background: #fff0dc; }
+</style>
+</head>
+<body>
+  <div class="blob"></div>
+  <div class="copy">
+    <div class="brand">
+      <svg width="64" height="64" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#4766F0"/><path fill="#F7FBFA" d="M8 8h12a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H14l-4 4v-4H8a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4z"/><circle cx="10.5" cy="15" r="1.5" fill="#4766F0"/><circle cx="14.5" cy="15" r="1.5" fill="#4766F0"/><circle cx="18.5" cy="15" r="1.5" fill="#FF8F7A"/></svg>
+      Auria
+    </div>
+    <h1>Say it with <span>pictures.</span></h1>
+    <p>თქვი ეს სურათებით.<br>AAC app for autism · iOS · Android · Windows · Web</p>
+  </div>
+  <div class="tablet">
+    <div class="screen">
+      <div class="bar"><div class="sent">I want eat</div><div class="spk"></div></div>
+      <div class="grid">
+        <div class="t y">I</div><div class="t y">you</div><div class="t g">want</div><div class="t r">more</div>
+        <div class="t r">stop</div><div class="t g">go</div><div class="t g">help</div><div class="t g">eat</div>
+        <div class="t g">drink</div><div class="t o">happy</div><div class="t b">home</div><div class="t r">yes</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
