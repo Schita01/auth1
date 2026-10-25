@@ -3,9 +3,9 @@ export const en = {
   ogLocale: "en_US",
 
   meta: {
-    homeTitle: "Khidi — AAC app for autism: speak with pictures",
+    homeTitle: "Khidi — AAC App for Autism in Georgian | Speak with Pictures",
     homeDescription:
-      "Khidi is an AAC communication app for autistic children and adults. Tap pictures, build a sentence, and the app speaks it. Works on iPhone, iPad, Android, Windows and the web.",
+      "Khidi is a Georgian-language AAC app for autistic and non-verbal children and adults. Tap pictures, build a sentence, and Khidi speaks it aloud in Georgian. On Android and the web; iOS and Windows coming soon.",
     keywords: [
       "AAC app",
       "autism communication app",

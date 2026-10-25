@@ -78,7 +78,7 @@ export function homeJsonLd(lang: Lang) {
     name: site.name,
     description: t.meta.homeDescription,
     applicationCategory: "CommunicationApplication",
-    operatingSystem: "iOS, iPadOS, Android, Windows, Web",
+    operatingSystem: "Android, Web",
     inLanguage: ["ka", "en"],
     url: home,
     image: absoluteUrl("/og.png"),

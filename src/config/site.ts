@@ -2,7 +2,7 @@
 export const site = {
   name: "Khidi",
   // Production address of the website. Used for canonical links, sitemap and social previews.
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.com").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://khidi.online.ge").replace(/\/$/, ""),
   email: "hello@example.com",
   // Replace with the real store pages once the app is published.
   stores: {
