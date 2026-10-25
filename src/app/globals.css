@@ -324,6 +324,64 @@ button:disabled {
   display: none;
 }
 
+.download-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(17, 24, 39, 0.42);
+}
+
+.download-dialog {
+  width: min(400px, 100%);
+  padding: 1.25rem 1.25rem 1.4rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+}
+
+.download-dialog-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.download-dialog-head h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.download-choices {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.download-choices .badge-row,
+.download-choices .store-badge {
+  width: 100%;
+}
+
+.download-choice {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.download-soon {
+  margin: 0;
+  padding-left: 0.2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.download-dialog .store-soon-tip {
+  display: none;
+}
+
 /* ============================================================
    Hero
 ============================================================ */
@@ -349,18 +407,6 @@ button:disabled {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 3rem;
   align-items: center;
-}
-
-.kicker {
-  display: inline-block;
-  margin-bottom: 1.2rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--card);
-  color: var(--muted);
-  font-weight: 500;
-  font-size: 0.85rem;
 }
 
 h1 {
@@ -817,6 +863,164 @@ button.tile:active {
   background: linear-gradient(135deg, #f3f6fc, #e9eefb);
 }
 
+/* ============================================================
+   Annotated app screenshot
+============================================================ */
+.wrap-tour {
+  width: min(1360px, calc(100% - 1.25rem));
+}
+
+.app-guide {
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.guide-device {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.25rem 0 3.6rem;
+}
+
+.guide-shot,
+.guide-notes {
+  grid-area: 1 / 1;
+  width: 100%;
+}
+
+.guide-shot {
+  position: relative;
+}
+
+.guide-notes {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.guide-device img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.guide-markers,
+.guide-notes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guide-markers {
+  display: none;
+}
+
+.guide-marker,
+.guide-note {
+  --x: 50%;
+  --y: 50%;
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 0;
+  height: 0;
+}
+
+.guide-note {
+  color: var(--sage-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.25;
+  pointer-events: none;
+}
+
+.guide-pin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 10px;
+  height: 10px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--sage);
+  box-shadow: 0 0 0 4px var(--sage-soft);
+  color: transparent;
+  font-size: 0.62rem;
+  overflow: hidden;
+}
+
+.guide-stem {
+  position: absolute;
+  background: var(--sage);
+  opacity: 0.55;
+}
+
+.guide-text {
+  position: absolute;
+  width: max-content;
+  max-width: 11.5rem;
+}
+
+.guide-note--left .guide-stem {
+  right: 6px;
+  top: 0;
+  width: 4.2rem;
+  height: 1px;
+  translate: 0 -50%;
+}
+
+.guide-note--left .guide-text {
+  right: 4.5rem;
+  top: 0;
+  translate: 0 -50%;
+  text-align: right;
+}
+
+.guide-note--right .guide-stem {
+  left: 6px;
+  top: 0;
+  width: 4.2rem;
+  height: 1px;
+  translate: 0 -50%;
+}
+
+.guide-note--right .guide-text {
+  left: 4.5rem;
+  top: 0;
+  translate: 0 -50%;
+  text-align: left;
+}
+
+.guide-note--bottom .guide-stem {
+  left: 0;
+  top: 6px;
+  width: 1px;
+  height: 1.45rem;
+  translate: -50% 0;
+}
+
+.guide-note--bottom .guide-text {
+  left: 0;
+  top: 1.85rem;
+  width: 7.4rem;
+  max-width: 7.4rem;
+  translate: -50% 0;
+  text-align: center;
+}
+
+html[lang="ka"] .guide-note {
+  font-size: 0.74rem;
+}
+
+html[lang="ka"] .guide-note--bottom .guide-text {
+  width: 8.2rem;
+  max-width: 8.2rem;
+}
+
 
 /* ============================================================
    Footer
@@ -944,6 +1148,21 @@ button.tile:active {
 
 .prose p + p {
   margin-top: 0.7rem;
+}
+
+.prose ul {
+  margin: 0.6rem 0 0.8rem;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.prose li {
+  color: var(--ink);
+}
+
+.prose a {
+  overflow-wrap: anywhere;
 }
 
 .draft-note {
@@ -1165,6 +1384,99 @@ button.tile:active {
     padding: 0.45rem 0.5rem;
   }
 
+  .wrap-tour {
+    width: calc(100% - 1rem);
+  }
+
+  .guide-device {
+    display: block;
+    width: 100%;
+    max-width: none;
+    padding-bottom: 0;
+  }
+
+  .guide-shot,
+  .guide-notes {
+    grid-area: auto;
+  }
+
+  .guide-notes {
+    aspect-ratio: auto;
+  }
+
+  .guide-markers {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .guide-markers .guide-pin {
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    overflow: visible;
+  }
+
+  .guide-notes {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 1.1rem;
+    margin-top: 1.6rem;
+  }
+
+  .guide-note {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 500;
+    pointer-events: auto;
+  }
+
+  .guide-note .guide-stem {
+    display: none;
+  }
+
+  .guide-note .guide-pin {
+    position: static;
+    translate: none;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 0.05rem;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .guide-text,
+  .guide-note--left .guide-text,
+  .guide-note--right .guide-text,
+  .guide-note--bottom .guide-text,
+  html[lang="ka"] .guide-note,
+  html[lang="ka"] .guide-note--bottom .guide-text {
+    position: static;
+    right: auto;
+    left: auto;
+    top: auto;
+    width: auto;
+    max-width: none;
+    translate: none;
+    text-align: left;
+    font-size: inherit;
+  }
+
   .tour {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -1205,10 +1517,6 @@ button.tile:active {
 @media (max-width: 960px) {
   .menu-button {
     display: inline-flex;
-  }
-
-  .header-cta {
-    display: none;
   }
 
   .nav {
@@ -1335,8 +1643,9 @@ button.tile:active {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .tour-steps {
-    grid-template-columns: 1fr 1fr;
+  .tour-steps,
+  .guide-notes {
+    grid-template-columns: 1fr;
   }
 
   .print-cta {
@@ -1353,6 +1662,10 @@ button.tile:active {
   .wrap,
   .wrap.narrow {
     width: calc(100% - 1.75rem);
+  }
+
+  .wrap.wrap-tour {
+    width: calc(100% - 0.75rem);
   }
 
   .store-badge {

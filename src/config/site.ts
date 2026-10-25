@@ -21,8 +21,8 @@ export const site = {
 export type Lang = "ka" | "en";
 
 export const routes = {
-  ka: { home: "/", print: "/print/", privacy: "/privacy/" },
-  en: { home: "/en/", print: "/en/print/", privacy: "/en/privacy/" },
+  ka: { home: "/", print: "/print/", privacy: "/privacy/", terms: "/terms/" },
+  en: { home: "/en/", print: "/en/print/", privacy: "/en/privacy/", terms: "/en/terms/" },
 } as const;
 
 export type PageKey = keyof (typeof routes)["ka"];

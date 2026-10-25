@@ -7,6 +7,7 @@ const pages: { key: PageKey; priority: number; changeFrequency: "weekly" | "mont
   { key: "home", priority: 1, changeFrequency: "weekly" },
   { key: "print", priority: 0.7, changeFrequency: "monthly" },
   { key: "privacy", priority: 0.3, changeFrequency: "yearly" },
+  { key: "terms", priority: 0.3, changeFrequency: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

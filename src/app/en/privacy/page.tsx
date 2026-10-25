@@ -1,8 +1,8 @@
-import { PrivacyPage } from "@/components/pages/PrivacyPage";
+import { LegalPage } from "@/components/pages/LegalPage";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("en", "privacy");
 
 export default function Page() {
-  return <PrivacyPage lang="en" />;
+  return <LegalPage lang="en" page="privacy" />;
 }

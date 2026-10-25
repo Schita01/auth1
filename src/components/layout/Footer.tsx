@@ -24,6 +24,7 @@ export function Footer({ lang }: { lang: Lang }) {
             <h3>{t.footer.legal}</h3>
             <ul>
               <li><Link href={r.privacy}>{t.footer.privacy}</Link></li>
+              <li><Link href={r.terms}>{t.footer.terms}</Link></li>
               <li><a href={routes[other].home} hrefLang={other} lang={other}>{t.nav.otherLang}</a></li>
             </ul>
           </nav>

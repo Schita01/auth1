@@ -8,6 +8,7 @@ import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { StoreBadges } from "@/components/StoreBadges";
 import { HeroVisual } from "@/components/HeroVisual";
+import { AppGuide } from "@/components/AppGuide";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { Reveal } from "@/components/Reveal";
 
@@ -26,17 +27,17 @@ export function HomePage({ lang }: { lang: Lang }) {
   const other: Lang = lang === "ka" ? "en" : "ka";
   const heroPhoto = findPhoto("hero");
   const videoPoster = findPhoto("video");
+  const tourPhoto = findPhoto(`tour-${lang}`) ?? findPhoto("tour");
 
   return (
     <>
       <JsonLd data={homeJsonLd(lang)} />
-      <Header nav={t.nav} home={r.home} otherHref={routes[other].home} otherLang={other} />
+      <Header nav={t.nav} badges={t.badges} home={r.home} otherHref={routes[other].home} otherLang={other} />
 
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <p className="kicker">{t.hero.kicker}</p>
               <h1 id="hero-title">
                 {t.hero.title} <span className="accent">{t.hero.titleAccent}</span>
               </h1>
@@ -46,6 +47,15 @@ export function HomePage({ lang }: { lang: Lang }) {
             {heroPhoto && <HeroVisual photo={heroPhoto} photoAlt={t.hero.photoAlt} />}
           </div>
         </section>
+
+        {tourPhoto && (
+          <section className="section section-soft" aria-labelledby="tour-title">
+            <div className="wrap wrap-tour">
+              <SectionHead id="tour-title" title={t.tour.title} lead={t.tour.lead} />
+              <AppGuide t={t.tour} photo={tourPhoto} photoAlt={t.tour.photoAlt} />
+            </div>
+          </section>
+        )}
 
         <section className="section section-video" aria-labelledby="video-title">
           <div className="wrap">

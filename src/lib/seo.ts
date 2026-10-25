@@ -3,7 +3,10 @@ import { absoluteUrl, routes, site, type Lang, type PageKey } from "@/config/sit
 import { getDict } from "@/content";
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6efe6" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1f54" },
+  ],
   colorScheme: "light",
 };
 
@@ -14,6 +17,7 @@ export function pageMetadata(lang: Lang, page: PageKey): Metadata {
     home: { title: t.meta.homeTitle, description: t.meta.homeDescription },
     print: { title: `${t.meta.printTitle} | ${site.name}`, description: t.meta.printDescription },
     privacy: { title: `${t.meta.privacyTitle} | ${site.name}`, description: t.meta.privacyDescription },
+    terms: { title: `${t.meta.termsTitle} | ${site.name}`, description: t.meta.termsDescription },
   }[page];
   const url = absoluteUrl(routes[lang][page]);
 
@@ -50,8 +54,11 @@ export function pageMetadata(lang: Lang, page: PageKey): Metadata {
     robots: { index: true, follow: true, "max-image-preview": "large" },
     icons: {
       icon: [
-        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+        { url: "/favicon-light.png", type: "image/png" },
+        { url: "/favicon-light.png", type: "image/png", media: "(prefers-color-scheme: light)" },
+        { url: "/favicon-dark.png", type: "image/png", media: "(prefers-color-scheme: dark)" },
+        { url: "/icon-light.png", type: "image/png", media: "(prefers-color-scheme: light)" },
+        { url: "/icon-dark.png", type: "image/png", media: "(prefers-color-scheme: dark)" },
       ],
       apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     },
@@ -106,7 +113,7 @@ export function homeJsonLd(lang: Lang) {
 
 export function breadcrumbJsonLd(lang: Lang, page: Exclude<PageKey, "home">) {
   const t = getDict(lang);
-  const name = page === "print" ? t.print.title : t.privacy.title;
+  const name = { print: t.print.title, privacy: t.privacy.title, terms: t.terms.title }[page];
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

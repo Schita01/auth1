@@ -2,11 +2,12 @@ import Link from "next/link";
 import type { Dict } from "@/content";
 import { site } from "@/config/site";
 import { Icon } from "@/components/Icon";
+import { DownloadButton } from "@/components/DownloadButton";
 import { LogoMark } from "./Logo";
 
-type Props = { nav: Dict["nav"]; home: string; otherHref: string; otherLang: string };
+type Props = { nav: Dict["nav"]; badges: Dict["badges"]; home: string; otherHref: string; otherLang: string };
 
-export function Header({ nav, home, otherHref, otherLang }: Props) {
+export function Header({ nav, badges, home, otherHref, otherLang }: Props) {
   return (
     <header className="site-header">
       <a className="skip" href="#main">
@@ -23,14 +24,7 @@ export function Header({ nav, home, otherHref, otherLang }: Props) {
             <Icon name="globe" size={18} />
             <span>{nav.otherLang}</span>
           </a>
-          <a
-            className="button button-small header-cta"
-            href={site.stores.android}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {nav.cta}
-          </a>
+          <DownloadButton nav={nav} badges={badges} />
         </div>
       </div>
     </header>

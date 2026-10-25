@@ -17,7 +17,7 @@ export function PrintPage({ lang }: { lang: Lang }) {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(lang, "print")} />
-      <Header nav={t.nav} home={r.home} otherHref={routes[other].print} otherLang={other} />
+      <Header nav={t.nav} badges={t.badges} home={r.home} otherHref={routes[other].print} otherLang={other} />
       <main id="main" className="section page">
         <div className="wrap">
           <nav className="crumbs no-print" aria-label="Breadcrumb">

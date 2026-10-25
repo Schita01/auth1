@@ -5,6 +5,8 @@ hero.jpg / hero.png
              App screenshot at the top of the home page (phone or tablet).
              hero.png is already in place. Replace this file to update the hero.
              Without it, the page shows a drawn tablet with the app.
+tour.png     Annotated “Meet Khidi” screenshot on the home page.
+tour-en.png  Optional English board screenshot. If missing, tour.png is used.
 how-1.jpg    "Auria in real life" - at home (stock photo from Pexels; replace with your own anytime)
 how-2.jpg    "Auria in real life" - at school
 how-3.jpg    "Auria in real life" - outside
