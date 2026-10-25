@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { RootShell } from "@/components/layout/RootShell";
 import { LogoMark } from "@/components/layout/Logo";
-import { routes } from "@/config/site";
+import { routes, site } from "@/config/site";
 
 export { viewport } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "404 · Khidi",
+  title: `404 · ${site.name}`,
   robots: { index: false },
 };
 

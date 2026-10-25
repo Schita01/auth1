@@ -1,6 +1,4 @@
-export function HeroVisual({ photo, photoAlt }: { photo: string | null; photoAlt: string }) {
-  if (!photo) return null;
-
+export function HeroVisual({ photo, photoAlt }: { photo: string; photoAlt: string }) {
   return (
     <div className="hero-visual has-photo">
       <figure className="hero-device-frame">

@@ -1,10 +1,17 @@
 import type { Dict } from "@/content";
 import { site } from "@/config/site";
 
-type StoreId = "ios" | "android" | "windows";
+type StoreId = "web" | "ios" | "android" | "windows" | "amazon";
 
 function Mark({ id }: { id: StoreId }) {
   switch (id) {
+    case "web":
+      return (
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" />
+        </svg>
+      );
     case "ios":
       return (
         <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="currentColor">
@@ -26,12 +33,20 @@ function Mark({ id }: { id: StoreId }) {
           <path d="M3 5.5 10.5 4.5v7H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z" />
         </svg>
       );
+    case "amazon":
+      return (
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+          <path d="M4 15c4.5 3 11.5 3 16 0" />
+          <path d="M17 14.5l3 .5-.6 3" />
+          <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+        </svg>
+      );
   }
 }
 
-const LIVE_STORES: StoreId[] = ["android"];
+const LIVE_STORES: StoreId[] = ["web", "android"];
 
-export function StoreBadge({ id, t }: { id: StoreId; t: Dict["badges"] }) {
+export function StoreBadge({ id, t, href }: { id: StoreId; t: Dict["badges"]; href?: string }) {
   const [small, big] = t[id];
   const soon = !LIVE_STORES.includes(id);
   const label = soon ? `${small} ${big}. ${t.comingSoon}` : `${small} ${big}`;
@@ -54,12 +69,13 @@ export function StoreBadge({ id, t }: { id: StoreId; t: Dict["badges"] }) {
     );
   }
 
+  const url = href ?? (id === "web" ? "/print/" : site.stores[id]);
+  const external = id !== "web";
   return (
     <a
       className={`store-badge store-${id}`}
-      href={site.stores[id]}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={url}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       aria-label={label}
     >
       {inner}
@@ -67,12 +83,14 @@ export function StoreBadge({ id, t }: { id: StoreId; t: Dict["badges"] }) {
   );
 }
 
-export function StoreBadges({ t, include = ["ios", "android", "windows"] }: { t: Dict["badges"]; include?: StoreId[] }) {
+export function StoreBadges({ t, webHref, include = ["web", "ios", "android", "windows"] }: { t: Dict["badges"]; webHref?: string; include?: StoreId[] }) {
   return (
     <div className="badge-row">
       {include.map((id) => (
-        <StoreBadge key={id} id={id} t={t} />
+        <StoreBadge key={id} id={id} t={t} href={id === "web" ? webHref : undefined} />
       ))}
     </div>
   );
 }
+
+export type { StoreId };

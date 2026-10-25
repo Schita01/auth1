@@ -1,21 +1,28 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, routes } from "@/config/site";
+import { absoluteUrl, routes, type PageKey } from "@/config/site";
 
 export const dynamic = "force-static";
 
+const pages: { key: PageKey; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" }[] = [
+  { key: "home", priority: 1, changeFrequency: "weekly" },
+  { key: "print", priority: 0.7, changeFrequency: "monthly" },
+  { key: "privacy", priority: 0.3, changeFrequency: "yearly" },
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return (["ka", "en"] as const).map((lang) => ({
-    url: absoluteUrl(routes[lang].home),
-    lastModified,
-    changeFrequency: "weekly",
-    priority: lang === "ka" ? 1 : 0.9,
-    alternates: {
-      languages: {
-        ka: absoluteUrl(routes.ka.home),
-        en: absoluteUrl(routes.en.home),
-        "x-default": absoluteUrl(routes.ka.home),
+  return pages.flatMap(({ key, priority, changeFrequency }) =>
+    (["ka", "en"] as const).map((lang) => ({
+      url: absoluteUrl(routes[lang][key]),
+      lastModified,
+      changeFrequency,
+      priority: lang === "ka" ? priority : Math.round(priority * 9) / 10,
+      alternates: {
+        languages: {
+          ka: absoluteUrl(routes.ka[key]),
+          en: absoluteUrl(routes.en[key]),
+        },
       },
-    },
-  }));
+    })),
+  );
 }

@@ -13,9 +13,9 @@ export function Header({ nav, home, otherHref, otherLang }: Props) {
         {nav.skip}
       </a>
       <div className="wrap header-inner">
-        <Link className="logo" href={home} aria-label="Khidi">
+        <Link className="logo" href={home} aria-label={site.name}>
           <LogoMark />
-          <span>Khidi</span>
+          <span>{site.name}</span>
         </Link>
 
         <div className="header-actions">
