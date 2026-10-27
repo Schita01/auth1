@@ -1,3 +1,4 @@
+import { Fragment, type ReactNode } from "react";
 import { routes, site, type Lang } from "@/config/site";
 import { getDict } from "@/content";
 import { findPhoto } from "@/lib/photos";
@@ -12,13 +13,24 @@ import { AppGuide } from "@/components/AppGuide";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { Reveal } from "@/components/Reveal";
 
-function SectionHead({ id, title, lead }: { id: string; title: string; lead?: string }) {
+function SectionHead({ id, title, lead }: { id: string; title: ReactNode; lead?: string }) {
   return (
     <div className="section-head reveal is-center">
       <h2 id={id}>{title}</h2>
       {lead && <p className="lead">{lead}</p>}
     </div>
   );
+}
+
+function brandTitle(text: string) {
+  const parts = text.split("Khidi");
+  if (parts.length === 1) return text;
+  return parts.map((part, i) => (
+    <Fragment key={i}>
+      {part}
+      {i < parts.length - 1 && <span className="brand-name">Khidi</span>}
+    </Fragment>
+  ));
 }
 
 export function HomePage({ lang }: { lang: Lang }) {
@@ -51,7 +63,7 @@ export function HomePage({ lang }: { lang: Lang }) {
         {tourPhoto && (
           <section className="section section-soft" aria-labelledby="tour-title">
             <div className="wrap wrap-tour">
-              <SectionHead id="tour-title" title={t.tour.title} lead={t.tour.lead} />
+              <SectionHead id="tour-title" title={brandTitle(t.tour.title)} lead={t.tour.lead} />
               <AppGuide t={t.tour} photo={tourPhoto} photoAlt={t.tour.photoAlt} />
             </div>
           </section>

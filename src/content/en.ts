@@ -3,9 +3,9 @@ export const en = {
   ogLocale: "en_US",
 
   meta: {
-    homeTitle: "Khidi — AAC App for Autism in Georgian | Speak with Pictures",
+    homeTitle: "Khidi — AAC app for autism | Alternative communication with pictures",
     homeDescription:
-      "Khidi is a Georgian-language AAC app for autistic and non-verbal children and adults. Tap pictures, build a sentence, and Khidi speaks it aloud in Georgian. On Android and the web; iOS and Windows coming soon.",
+      "Khidi is a Georgian-language alternative communication (AAC) app for children and adults with autism and for non-verbal children and adults. Tap pictures, build a sentence, and the app says it out loud in Georgian. On Android and in the browser.",
     keywords: [
       "AAC app",
       "autism communication app",
@@ -37,25 +37,25 @@ export const en = {
     skip: "Skip to content",
     otherLang: "ქართული",
     otherLangLabel: "Switch to Georgian",
-    cta: "Get the app",
-    downloadTitle: "Get the app",
+    cta: "Download",
+    downloadTitle: "Download the app",
     close: "Close",
     notYet: "Not available yet",
   },
 
   hero: {
-    title: "Say it with",
-    titleAccent: "pictures.",
-    lead: "Khidi helps autistic children and adults communicate. Tap a picture, build a sentence, and the app says it out loud.",
-    photoAlt: "Khidi main screen on a tablet — the word button grid",
+    title: "An alternative communication app for autism —",
+    titleAccent: "speak with pictures.",
+    lead: "Khidi helps children and adults with autism communicate. Tap a picture, build a sentence, and the app says it out loud.",
+    photoAlt: "Khidi's main screen on a tablet — a grid of word buttons",
   },
 
   badges: {
     comingSoon: "In progress",
-    web: ["Open in your", "Web browser"],
-    ios: ["Download on the", "App Store"],
-    android: ["Get it on", "Google Play"],
-    windows: ["Get it from", "Microsoft"],
+    web: ["Open", "In the browser"],
+    ios: ["Download", "App Store"],
+    android: ["Download", "Google Play"],
+    windows: ["Download", "Microsoft"],
     amazon: ["Available at", "Amazon Appstore"],
   },
 
@@ -63,23 +63,23 @@ export const en = {
     title: "See how it works",
     lead: "A short video of Khidi in everyday life.",
     play: "Play video",
-    soon: "Video coming soon.",
+    soon: "The video will be added soon.",
   },
 
   tour: {
     title: "Meet Khidi",
-    lead: "The home board. Tap pictures, build a sentence, hear it spoken.",
+    lead: "The main board. Tap pictures, build a sentence, hear the voice.",
     photoAlt: "Khidi home board on a tablet, with picture buttons, folders, and a sentence bar",
     notes: {
       message: "The sentence appears here",
       clear: "Clear the sentence",
-      speak: "Tap a picture to speak",
+      speak: "Tap a picture to say it",
       folders: "Folders for more words",
       more: "More buttons",
       boards: "Your boards",
       keyboard: "Keyboard",
       home: "Home",
-      edit: "Edit buttons and folders",
+      edit: "Edit the buttons",
     },
   },
 

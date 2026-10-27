@@ -21,6 +21,7 @@
   --header: rgba(255, 255, 255, 0.82);
   --radius: 18px;
   --font: var(--font-latin), var(--font-georgian), "Segoe UI", system-ui, sans-serif;
+  --font-brand: var(--font-logo), var(--font-latin), system-ui, sans-serif;
 }
 
 *,
@@ -33,6 +34,10 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
   overflow-x: clip;
+}
+
+html[data-scroll="auto"] {
+  scroll-behavior: auto;
 }
 
 body {
@@ -77,6 +82,16 @@ h4 {
   line-height: 1.2;
   font-weight: 700;
   text-wrap: balance;
+}
+
+.brand-name {
+  font-family: var(--font-brand);
+  font-weight: 700;
+}
+
+html[lang="ka"] #hero-title {
+  font-family: var(--font-display), var(--font-georgian), var(--font-latin), system-ui, sans-serif;
+  font-weight: 400;
 }
 
 p {
@@ -288,9 +303,10 @@ button:disabled {
   gap: 0.55rem;
   color: var(--ink) !important;
   text-decoration: none;
+  font-family: var(--font-brand);
   font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: -0.01em;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
 }
 
 .nav {
