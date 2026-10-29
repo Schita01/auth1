@@ -76,6 +76,8 @@ export function homeJsonLd(lang: Lang) {
     "@type": "SoftwareApplication",
     "@id": `${home}#app`,
     name: site.name,
+    alternateName: ["ხიდი", "Khidi AAC"],
+    disambiguatingDescription: "Georgian-language AAC (augmentative and alternative communication) app with Georgian text-to-speech for autistic and non-verbal people. Not the KHIDI nightclub in Tbilisi.",
     description: t.meta.homeDescription,
     applicationCategory: "CommunicationApplication",
     operatingSystem: "Android, Web",
@@ -92,7 +94,7 @@ export function homeJsonLd(lang: Lang) {
 
   const graph: Record<string, unknown>[] = [
     org,
-    { "@type": "WebSite", "@id": `${site.url}/#website`, url: site.url, name: site.name, inLanguage: lang, publisher: { "@id": `${site.url}/#org` } },
+    { "@type": "WebSite", "@id": `${site.url}/#website`, url: site.url, name: site.name, alternateName: ["ხიდი", "Khidi AAC"], inLanguage: lang, publisher: { "@id": `${site.url}/#org` } },
     app,
   ];
 

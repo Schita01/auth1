@@ -1,0 +1,14 @@
+# Khidi (ხიდი)
+
+> Khidi is a Georgian-language AAC (augmentative and alternative communication) app for autistic and non-verbal children and adults. Users tap pictures to build a sentence, and Khidi speaks it aloud in Georgian with its own Georgian text-to-speech voice. Available on the web; Android coming via Google Play. Not related to the KHIDI nightclub in Tbilisi.
+
+Khidi (ხიდი) არის ქართულენოვანი ალტერნატიული კომუნიკაციის (AAC) აპლიკაცია აუტიზმის მქონე და არავერბალური ბავშვებისა და მოზრდილებისთვის.
+
+## Main pages
+- [Khidi — Georgian home page](https://khidi.online.ge/): what the app does, who it is for, how to start
+- [Khidi — English home page](https://khidi.online.ge/en/): English version
+- [Printable cards](https://khidi.online.ge/print/): printable picture cards
+
+## Policies
+- [Privacy policy](https://khidi.online.ge/privacy/)
+- [Terms](https://khidi.online.ge/terms/)
